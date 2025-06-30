@@ -1,0 +1,8 @@
+| METRİK             | DEĞER     |
+|---------------------|-----------|
+| Test Periyodu       | 2024      |
+| Toplam İşlem        | 428       |
+| Başarı Oranı        | 68.9%     |
+| Ort. İşlem Süresi   | 17 dk     |
+| Profit Faktör       | 1.94      |
+| Öne Çıkan Özellik   | %0.8 kar hedefi |

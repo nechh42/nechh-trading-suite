@@ -1,0 +1,21 @@
+
+---
+
+### 8. PREMIUM ÖZELLİK YÖNETİMİ
+**Özellik Bayrakları Sistemi:**
+```python
+def check_feature(feature_name, license_key):
+    features = {
+        "premium_signals": ["pro", "premium"],
+        "telegram_alerts": ["pro", "premium"],
+        "multi_exchange": ["premium"]
+    }
+    
+    license_plan = get_plan_from_key(license_key)
+    return license_plan in features[feature_name]
+
+# Kullanım
+if check_feature("telegram_alerts", user_key):
+    send_telegram_alert()
+else:
+    print("Bu özellik için premium üyelik gereklidir")

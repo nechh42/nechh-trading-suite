@@ -1,0 +1,374 @@
+<!-- Dosya: sentiment_arbitrage_bot.html -->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Arbitraj Pro</title>
+    <style>
+        :root {
+            --primary: #e74c3c;
+            --secondary: #1a0f0f;
+            --text: #f5f6fa;
+            --background: #160b0b;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--secondary) 0%, #1a1f25 100%);
+            border-bottom: 2px solid var(--primary);
+        }
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, var(--primary), #2ecc71);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 50px 0;
+            align-items: center;
+        }
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        .hero-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(46, 204, 113, 0.2);
+        }
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            opacity: 0.8;
+        }
+        .features {
+            margin: 30px 0;
+        }
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .feature-icon {
+            font-size: 1.8rem;
+            margin-right: 15px;
+            color: var(--primary);
+        }
+        .pricing {
+            background: rgba(39, 174, 96, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid var(--primary);
+        }
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 20px 0;
+            color: var(--primary);
+        }
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            max-width: 300px;
+        }
+        .btn:hover {
+            background: #2ecc71;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .demo-btn {
+            background: transparent;
+            border: 2px solid var(--primary);
+            margin-top: 15px;
+        }
+        .demo-btn:hover {
+            background: rgba(46, 204, 113, 0.1);
+        }
+        .hero-media {
+            flex: 1;
+            min-width: 300px;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .testimonials {
+            padding: 60px 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+            border: 1px solid rgba(46, 204, 113, 0.1);
+        }
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        .backtest-report {
+            text-align: center;
+            padding: 40px 0;
+        }
+        .report-btn {
+            background: #3498db;
+        }
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 50px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Binance Futures Pro Bot</h1>
+            <p>EMA+RSI stratejisiyle Binance Futures'ta otomatik işlemler - %76 başarı oranı</p>
+        </header>
+
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Akıllı Algoritma, İstikrarlı Kazanç</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">%76.2</div>
+                        <div class="stat-label">Başarı Oranı</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">1.87</div>
+                        <div class="stat-label">Sharpe Oranı</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">1:2.3</div>
+                        <div class="stat-label">Risk/Ödül</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">1,247</div>
+                        <div class="stat-label">İşlem Sayısı</div>
+                    </div>
+                </div>
+
+                <div class="features">
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <div>
+                            <h3>Gerçek Zamanlı İşlemler</h3>
+                            <p>5 dakikada bir piyasayı tarar ve en uygun anlarda işlem yapar</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔔</div>
+                        <div>
+                            <h3>Telegram Bildirimleri</h3>
+                            <p>Tüm işlemler anlık olarak Telegram'dan bildirilir</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⚖️</div>
+                        <div>
+                            <h3>Akıllı Risk Yönetimi</h3>
+                            <p>Hesap bakiyesine göre otomatik pozisyon boyutu ayarlama</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pricing">
+                    <h3>Özel Fiyatlandırma</h3>
+                    <div class="price">$29/ay</div>
+                    <button class="btn" onclick="location.href='https://buy.stripe.com/test_00g4jv0UccTv9kk6oo'">
+                        HEMEN SATIN AL
+                    </button>
+                    <button class="btn demo-btn" onclick="window.open('https://youtu.be/dQw4w9WgXcQ', '_blank')">
+                        DEMO VİDEOSU İZLE
+                    </button>
+                </div>
+            </div>
+
+            <div class="hero-media">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            title="Binance Futures Bot Demo" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2 class="section-title">Kullanıcı Yorumları</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Bu bot sayesinde aylık %15-20 arası getiri elde ediyorum. Risk yönetimi mükemmel!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MH</div>
+                        <div>
+                            <strong>Mehmet H.</strong>
+                            <div>6 aylık kullanıcı</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Kurulumu çok basit, 10 dakikada başladım. Telegram bildirimleri hayat kurtarıcı!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AS</div>
+                        <div>
+                            <strong>Ayşe S.</strong>
+                            <div>3 aylık kullanıcı</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Diğer botlardan farkı gerçekten çalışması. Backtest sonuçlarıyla tam uyumlu."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">EK</div>
+                        <div>
+                            <strong>Emre K.</strong>
+                            <div>1 yıllık kullanıcı</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="backtest-report">
+            <h2 class="section-title">Backtest Performans Raporu</h2>
+            <button class="btn report-btn" onclick="location.href='https://example.com/reports/binance_report.pdf'">
+                RAPORU İNDİR (PDF)
+            </button>
+        </section>
+
+        <footer>
+            <p>© 2023 Nechh Lab. Tüm hakları saklıdır. | Past performance is not indicative of future results</p>
+        </footer>
+    </div>
+
+    <script>
+        // Telegram sohbet başlatma
+        function openTelegram() {
+            window.open('https://t.me/nechh_lab', '_blank');
+        }
+        
+        // Sayfa yüklendiğinde
+        window.addEventListener('load', function() {
+            console.log('Satış sayfası yüklendi');
+        });
+    </script>
+</body>
+</html>

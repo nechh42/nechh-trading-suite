@@ -1,0 +1,25 @@
+=== NEÇHH LAB KURULUM REHBERİ ===
+
+1. SATIN ALMA:
+   - index.html dosyasını açın
+   - İstediğiniz botun "7 GÜN ÜCRETSİZ DENE" butonuna tıklayın
+   - Demo anahtarınız otomatik oluşacaktır
+
+2. BOT KURULUMU:
+   a) Python kurulu değilse yükleyin: python.org
+   b) Terminali açın ve gerekli paketleri kurun:
+        pip install requests python-dotenv
+   
+   c) Bot dosyasını çalıştırın:
+        python binance-bot.py
+   
+   d) Demo anahtarınızı girin
+
+3. DEMO SÜRESİ BİTTİĞİNDE:
+   - index.html üzerinden satın alma yapın
+   - Size özel lisans anahtarınız mailinize gelecektir
+   - Botu tekrar çalıştırıp bu anahtarı girin
+
+=== DESTEK ===
+WhatsApp: +90 555 123 4567
+E-posta: destek@nechhlab.com

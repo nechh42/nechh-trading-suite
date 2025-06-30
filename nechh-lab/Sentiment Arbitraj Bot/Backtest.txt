@@ -1,0 +1,7 @@
+| METRİK             | DEĞER     |
+|---------------------|-----------|
+| Test Periyodu       | 2024      |
+| Analiz Edilen Tweet | 12,507    |
+| Doğruluk Oranı      | 79.3%     |
+| Ort. Arbitraj Kaz.  | $1.27     |
+| Öne Çıkan Özellik   | 5dk'da 8.7 işlem |

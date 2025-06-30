@@ -1,0 +1,9 @@
+| METRİK             | DEĞER     |
+|---------------------|-----------|
+| Test Periyodu       | 2023-2024 |
+| Toplam İşlem        | 1,247     |
+| Başarı Oranı        | 76.2%     |
+| Maksimum Çekilme    | -23.4%    |
+| Sharpe Oranı        | 1.87      |
+| Risk/Ödül Oranı     | 1:2.3     |
+| Öne Çıkan Özellik   | %83 kazançlı işlemler |
